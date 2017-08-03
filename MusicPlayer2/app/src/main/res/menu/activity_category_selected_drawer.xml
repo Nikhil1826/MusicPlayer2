@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/albums"
+            android:icon="@drawable/ic_library_music_black_24dp"
+            android:title="Albums" />
+        <item
+            android:id="@+id/artists"
+            android:icon="@drawable/ic_music_note_black_24dp"
+            android:title="Artists" />
+        <item
+            android:id="@+id/language"
+            android:icon="@drawable/ic_language_black_24dp"
+            android:title="Song Language" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Settings" />
+    </group>
+    </menu>
