@@ -24,7 +24,8 @@
             android:name=".CategorySelectedActivity"
             android:label="@string/title_activity_category_selected"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MusicSelectActivity"></activity>
+        <activity android:name=".MusicSelectActivity" />
+        <activity android:name=".LoadingSongsActivity"></activity>
     </application>
 
 </manifest>

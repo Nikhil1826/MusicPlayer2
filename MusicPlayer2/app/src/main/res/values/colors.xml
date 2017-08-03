@@ -9,4 +9,7 @@
     <color name="t3">#00ffffff</color>
     <color name="t4">#000000</color>
     <color name="t5">#00ffffff</color>
+    <color name="loading_background">#65828e</color>
+    <color name="main_color">#ff9a00</color>
+    <color name="secondary_color">#BDBDBD</color>
 </resources>

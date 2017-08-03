@@ -72,7 +72,7 @@ public class CategorySelectedAdapter extends RecyclerView.Adapter<CategorySelect
         public void onClick(View view) {
             int position = getAdapterPosition();
             CategorySelected categorySelected = this.albumslist.get(position);
-            Intent intent = new Intent(this.context,MusicSelectActivity.class);
+            Intent intent = new Intent(this.context,LoadingSongsActivity.class);
             intent.putExtra("KeyImg",categorySelected.getImage());
             intent.putExtra("KeyName",categorySelected.getAlbumname());
             this.context.startActivity(intent);

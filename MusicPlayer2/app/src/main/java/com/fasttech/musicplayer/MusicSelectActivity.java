@@ -36,7 +36,18 @@ public class MusicSelectActivity extends AppCompatActivity {
     MediaMetadataRetriever aedil0,aedil1,aedil2,aedil3,aedil4,aedil5;
     MediaMetadataRetriever badri0,badri1,badri2,badri3,badri4;
     MediaMetadataRetriever dangal0,dangal1,dangal2,dangal3,dangal4,dangal5;
-    MediaMetadataRetriever sultab0,sultan1,sultan2,sultan3,sultan4;
+    MediaMetadataRetriever sultan0,sultan1,sultan2,sultan3,sultan4,sultan5,sultan6,sultan7;
+
+
+
+
+
+    void hindiurl(){
+        urlaedil();
+        //urlbadri();
+        //urldangal();
+        //urlsultan();
+    }
 
 
 
@@ -49,12 +60,12 @@ public class MusicSelectActivity extends AppCompatActivity {
         aedil4 = new MediaMetadataRetriever();
         aedil5 = new MediaMetadataRetriever();
         String aedil[] = new String[6];
-        aedil[0]= "https://nikhilchauhan1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/01%20Ae%20Dil%20Hai%20Mushkil%20-%20Title%20Song%20(Arijit%20Singh)%20190kbps.mp3";
-        aedil[1]="https://nikhilchauhan1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/Alizeh.mp3";
-        aedil[2]="https://nikhilchauhan1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/Bulleya.mp3";
-        aedil[3]="https://nikhilchauhan1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/Channa%20Mereya.mp3";
-        aedil[4]="https://nikhilchauhan1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/Cutiepie.mp3";
-        aedil[5]="https://nikhilchauhan1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/The%20Breakup%20Song.mp3";
+        aedil[0]= "http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_bEg3TVM0MUxOWk0";
+        aedil[1]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_UWtFNGI3SVRzU3c";
+        aedil[2]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_SWF2X2xfV2N6cTg";
+        aedil[3]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_d3lDYkdwa2FPTE0";
+        aedil[4]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_aUVhYnM3NHBGM1E";
+        aedil[5]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_Y0tLaWU1TlFQMFU";
 
         aedil0.setDataSource(aedil[0], new HashMap<String, String>());
         aedil1.setDataSource(aedil[1],new HashMap<String, String>());
@@ -64,9 +75,9 @@ public class MusicSelectActivity extends AppCompatActivity {
         aedil5.setDataSource(aedil[5],new HashMap<String, String>());
 
 
-}
+    }
 
-void urlbadri(){
+/*void urlbadri(){
     badri0 = new MediaMetadataRetriever();
     badri1 = new MediaMetadataRetriever();
     badri2 = new MediaMetadataRetriever();
@@ -112,14 +123,35 @@ void urldangal(){
 }
 
 void urlsultan(){
-    sultab0 = new MediaMetadataRetriever();
+    sultan0 = new MediaMetadataRetriever();
     sultan1 = new MediaMetadataRetriever();
     sultan2 = new MediaMetadataRetriever();
     sultan3 = new MediaMetadataRetriever();
     sultan4 = new MediaMetadataRetriever();
-    String sultan[] = new String[5];
-    sultan[0]""
-}
+    sultan5 = new MediaMetadataRetriever();
+    sultan6 = new MediaMetadataRetriever();
+    sultan7 = new MediaMetadataRetriever();
+    String sultan[] = new String[8];
+    sultan[0]="https://nikhilchauhan1826.000webhostapp.com/Sultan/Baby%20Ko%20Bass%20Pasand%20Hai-(Mr-Jatt.com).mp3";
+    sultan[1]="https://nikhilchauhan1826.000webhostapp.com/Sultan/Bulleya-(Mr-Jatt.com).mp3";
+    sultan[2]="https://nikhilchauhan1826.000webhostapp.com/Sultan/Jag%20Ghoomeya-(Mr-Jatt.com).mp3";
+    sultan[3]="https://nikhilchauhan1826.000webhostapp.com/Sultan/Sachi%20Muchi-(Mr-Jatt.com).mp3";
+    sultan[4]="https://nikhilchauhan1826.000webhostapp.com/Sultan/Sultan%20(DjRaag.Net).mp3";
+    sultan[5]="https://nikhilchauhan1826.000webhostapp.com/Sultan/Tuk%20Tuk-(Mr-Jatt.com).mp3";
+    sultan[6]="https://nikhilchauhan1826.000webhostapp.com/Sultan/03%20440%20Volt%20-%20Sultan%20(Mika%20Singh)%20190Kbps.mp3";
+    sultan[7]="https://nikhilchauhan1826.000webhostapp.com/Sultan/14%20Raula%20Paye%20Gaya%20-%20Sultan%20(Rahat%20Fateh%20Khan)%20190Kbps.mp3";
+
+    sultan0.setDataSource(sultan[0],new HashMap<String, String>());
+    sultan1.setDataSource(sultan[1],new HashMap<String, String>());
+    sultan2.setDataSource(sultan[2],new HashMap<String, String>());
+    sultan3.setDataSource(sultan[3],new HashMap<String, String>());
+    sultan4.setDataSource(sultan[4],new HashMap<String, String>());
+    sultan5.setDataSource(sultan[5],new HashMap<String, String>());
+    sultan6.setDataSource(sultan[6],new HashMap<String, String>());
+    sultan7.setDataSource(sultan[7],new HashMap<String, String>());
+}*/
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,29 +166,45 @@ void urlsultan(){
         Intent rcv = getIntent();
         int image = rcv.getIntExtra("KeyImg",0);
         String name = rcv.getStringExtra("KeyName");
+        String aediltitle[] = rcv.getStringArrayExtra("KeyTitle");
+
         getSupportActionBar().setTitle(name);
         imageView.setBackgroundResource(image);
         //linearLayout.setBackgroundResource(image);
-        urlaedil();
-        urlbadri();
-        urldangal();
+        //hindiurl();
 
         switch (name){
             case "Ae Dil Hai Mushkil":
-                adapter.add(aedil0.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-                adapter.add(aedil1.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-                adapter.add(aedil2.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-                adapter.add(aedil3.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-                adapter.add(aedil4.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-                adapter.add(aedil5.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                for (int i =0;i<6;i++) {
+                    adapter.add(aediltitle[i]);
+                }
                 break;
-            case "Badrinath Ki Dulhania":
+            /*case "Badrinath Ki Dulhania":
                 adapter.add(badri0.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
                 adapter.add(badri1.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
                 adapter.add(badri2.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
                 adapter.add(badri3.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
                 adapter.add(badri4.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
                 break;
+            case "Dangal":
+                adapter.add(dangal0.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(dangal1.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(dangal2.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(dangal3.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(dangal4.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(dangal5.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                break;
+            case "Sultan":
+                adapter.add(sultan0.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(sultan1.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(sultan2.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(sultan3.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(sultan4.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(sultan5.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(sultan6.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                adapter.add(sultan7.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+                break;*/
+
 
 
 
