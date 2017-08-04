@@ -14,6 +14,8 @@ import com.twotoasters.jazzylistview.JazzyListView;
 
 import java.util.ArrayList;
 
+
+
 public class CategoryActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
     JazzyListView categorylist;
     ArrayList<Category> categoryArrayList;

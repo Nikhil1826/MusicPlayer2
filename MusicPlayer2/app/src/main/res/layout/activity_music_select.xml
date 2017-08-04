@@ -6,25 +6,30 @@
     android:layout_height="match_parent"
     tools:context="com.fasttech.musicplayer.MusicSelectActivity"
     android:orientation="vertical"
-    android:id="@+id/Musiclayout">
+    android:id="@+id/Musiclayout"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="380dp"
-        android:orientation="vertical">
+        android:layout_height="320dp"
+        android:orientation="vertical"
+        android:background="@drawable/c15">
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="318dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="268dp"
+            android:layout_marginTop="25dp" />
 
 
     </LinearLayout>
 
     <com.twotoasters.jazzylistview.JazzyListView
+        android:id="@+id/musiclist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/musiclist">
+        android:background="@drawable/c16">
 
     </com.twotoasters.jazzylistview.JazzyListView>
 

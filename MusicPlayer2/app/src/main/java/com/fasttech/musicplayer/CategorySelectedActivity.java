@@ -34,6 +34,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 import static android.view.View.X;
 import static java.security.AccessController.getContext;
 
@@ -44,21 +45,11 @@ public class CategorySelectedActivity extends AppCompatActivity
     RecyclerView.Adapter adapter;
     ArrayList<CategorySelected> albumsArrayList;
     TextView hits;
-    //MediaMetadataRetriever aedil1,badri1,dangal1;
-    //byte[] art1;
-    //byte[] art2;
-    //byte[] art3;
 
 
 
 
     void hindi(){
-        //art1 = aedil1.getEmbeddedPicture();
-        //art2 = badri1.getEmbeddedPicture();
-        //art3 = dangal1.getEmbeddedPicture();
-        //Bitmap aedil = BitmapFactory.decodeByteArray(art1,0,art1.length);
-        //Bitmap badri = BitmapFactory.decodeByteArray(art2,0,art2.length);
-        //Bitmap dangal = BitmapFactory.decodeByteArray(art3,0,art3.length);
         CategorySelected h1 = new CategorySelected("Ae Dil Hai Mushkil",R.drawable.aedil);
         CategorySelected h2 = new CategorySelected("Badrinath Ki Dulhania",R.drawable.badri);
         CategorySelected h3 = new CategorySelected("Dangal",R.drawable.dangal);
@@ -169,16 +160,6 @@ public class CategorySelectedActivity extends AppCompatActivity
     }
 
 
-    /*void url(){
-        String url[] = new String[100];
-        url[0]= "https://nikhilchauhan1826.000webhostapp.com/Hindi/Ae%20Dil%20Hai%20Mushkil%20Title%20Track%20(DjRaag.Net).mp3";
-        url[1] = "https://nikhilchauhan1826.000webhostapp.com/Hindi/Badri%20Ki%20Dulhania-(Mr-Jatt.com).mp3";
-        url[2] = "https://nikhilchauhan1826.000webhostapp.com/Hindi/Dangal%20(DjRaag.Net).mp3";
-        aedil1.setDataSource(url[0],new HashMap<String, String>());
-        badri1.setDataSource(url[1],new HashMap<String, String>());
-        dangal1.setDataSource(url[2],new HashMap<String, String>());
-    }*/
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,10 +170,6 @@ public class CategorySelectedActivity extends AppCompatActivity
         hits = (TextView)findViewById(R.id.hits);
         Intent rcv = getIntent();
         String name = rcv.getStringExtra("KeyN");
-        //aedil1 = new MediaMetadataRetriever();
-        //badri1 = new MediaMetadataRetriever();
-        //dangal1 = new MediaMetadataRetriever();
-        //url();
 
         switch (name){
             case "HINDI":

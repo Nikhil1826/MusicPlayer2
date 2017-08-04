@@ -33,26 +33,26 @@ public class MusicSelectActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
 
     //LinearLayout linearLayout;
-    MediaMetadataRetriever aedil0,aedil1,aedil2,aedil3,aedil4,aedil5;
-    MediaMetadataRetriever badri0,badri1,badri2,badri3,badri4;
-    MediaMetadataRetriever dangal0,dangal1,dangal2,dangal3,dangal4,dangal5;
-    MediaMetadataRetriever sultan0,sultan1,sultan2,sultan3,sultan4,sultan5,sultan6,sultan7;
+    //MediaMetadataRetriever aedil0,aedil1,aedil2,aedil3,aedil4,aedil5;
+   // MediaMetadataRetriever badri0,badri1,badri2,badri3,badri4;
+    //MediaMetadataRetriever dangal0,dangal1,dangal2,dangal3,dangal4,dangal5;
+    //MediaMetadataRetriever sultan0,sultan1,sultan2,sultan3,sultan4,sultan5,sultan6,sultan7;
 
 
 
 
 
-    void hindiurl(){
+    /*void hindiurl(){
         urlaedil();
         //urlbadri();
         //urldangal();
         //urlsultan();
-    }
+    }*/
 
 
 
 
-    void urlaedil(){
+    /*void urlaedil(){
         aedil0 = new MediaMetadataRetriever();
         aedil1 = new MediaMetadataRetriever();
         aedil2 = new MediaMetadataRetriever();
@@ -75,7 +75,7 @@ public class MusicSelectActivity extends AppCompatActivity {
         aedil5.setDataSource(aedil[5],new HashMap<String, String>());
 
 
-    }
+    }*/
 
 /*void urlbadri(){
     badri0 = new MediaMetadataRetriever();

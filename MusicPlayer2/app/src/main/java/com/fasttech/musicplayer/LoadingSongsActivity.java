@@ -1,14 +1,22 @@
 package com.fasttech.musicplayer;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaMetadataRetriever;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.github.jlmd.animatedcircleloadingview.AnimatedCircleLoadingView;
+import com.yasic.library.particletextview.MovingStrategy.RandomMovingStrategy;
+import com.yasic.library.particletextview.Object.ParticleTextViewConfig;
+import com.yasic.library.particletextview.View.ParticleTextView;
 
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 
@@ -18,6 +26,9 @@ public class LoadingSongsActivity extends AppCompatActivity {
     int albumimage;
     MediaMetadataRetriever aedil1[];
     String aediltitle[];
+    String aedil[] = new String[6];
+    TextView textView;
+
 
     void urlaedil(){
         aedil1 = new MediaMetadataRetriever[6];
@@ -26,13 +37,13 @@ public class LoadingSongsActivity extends AppCompatActivity {
             aedil1[i]= new MediaMetadataRetriever();
         }
 
-        String aedil[] = new String[6];
-        aedil[0]= "http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_bEg3TVM0MUxOWk0";
-        aedil[1]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_UWtFNGI3SVRzU3c";
-        aedil[2]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_SWF2X2xfV2N6cTg";
-        aedil[3]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_d3lDYkdwa2FPTE0";
-        aedil[4]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_aUVhYnM3NHBGM1E";
-        aedil[5]="http://docs.google.com/uc?export=download&id=0B8_Vk7mCoUT_Y0tLaWU1TlFQMFU";
+        //String aedil[] = new String[6];
+        aedil[0]= "https://musicplayer1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/01%20Ae%20Dil%20Hai%20Mushkil%20-%20Title%20Song%20(Arijit%20Singh)%20190kbps.mp3";
+        aedil[1]="https://musicplayer1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/Alizeh.mp3";
+        aedil[2]="https://musicplayer1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/Bulleya.mp3";
+        aedil[3]="https://musicplayer1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/Channa%20Mereya.mp3";
+        aedil[4]="https://musicplayer1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/Cutiepie.mp3";
+        aedil[5]="https://musicplayer1826.000webhostapp.com/Ae%20Dil%20hai%20mushkil/The%20Breakup%20Song.mp3";
 
         for(int i=0;i<6;i++){
             aedil1[i].setDataSource(aedil[i],new HashMap<String, String>());
@@ -46,6 +57,9 @@ public class LoadingSongsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_songs);
+        textView = (TextView)findViewById(R.id.text1);
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"jack.otf");
+        textView.setTypeface(typeface);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -55,6 +69,8 @@ public class LoadingSongsActivity extends AppCompatActivity {
         animatedCircleLoadingView = (AnimatedCircleLoadingView) findViewById(R.id.circle_loading_view);
         startLoading();
         startPercentMockThread();
+
+
 
 
     }
@@ -87,14 +103,16 @@ public class LoadingSongsActivity extends AppCompatActivity {
             public void run() {
                 animatedCircleLoadingView.setPercent(percent);
 
-                if (percent==99){
+
+               if (percent==99){
                     switch (albumname){
                         case "Ae Dil Hai Mushkil":
                             urlaedil();
                             aediltitle = new String[6];
-                            for(int i =0;i<6;i++){
+                            for(int i =0;i<6;i++) {
                                 aediltitle[i] = aedil1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
                             }
+
                             break;
 
 
@@ -121,4 +139,6 @@ public class LoadingSongsActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
