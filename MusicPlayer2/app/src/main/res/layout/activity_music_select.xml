@@ -1,37 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fasttech.musicplayer.MusicSelectActivity"
+    android:gravity="bottom"
     android:orientation="vertical"
     android:id="@+id/Musiclayout"
     >
 
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sliding_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    sothree:umanoPanelHeight="68dp"
+    sothree:umanoShadowHeight="0dp"
+    sothree:umanoParallaxOffset="100dp"
+    sothree:umanoDragView="@+id/dragView"
+    sothree:umanoOverlay="true"
+    sothree:umanoScrollableView="@+id/list">
+
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:orientation="vertical"
-        android:background="@drawable/c15">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="318dp"
-            android:layout_marginLeft="20dp"
-            android:layout_height="268dp"
-            android:layout_marginTop="25dp" />
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+          />
+
+        <com.twotoasters.jazzylistview.JazzyListView
+            android:id="@+id/musiclist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/c16">
+
+        </com.twotoasters.jazzylistview.JazzyListView>
+
+
 
 
     </LinearLayout>
 
-    <com.twotoasters.jazzylistview.JazzyListView
-        android:id="@+id/musiclist"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/c16">
-
-    </com.twotoasters.jazzylistview.JazzyListView>
 
 
-</LinearLayout>
+    <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/upper"
+        android:background="@color/bg">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/songPlayingImage"
+            android:alpha="0.2"/>
+
+
+
+</FrameLayout>
+
+
+
+
+
+
+
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+    </LinearLayout>
+
+
+
+
+

@@ -1,5 +1,6 @@
 package com.fasttech.musicplayer;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import com.twotoasters.jazzylistview.JazzyListView;
 
 import java.util.ArrayList;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class CategoryActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
@@ -21,6 +23,8 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
     ArrayList<Category> categoryArrayList;
     CategoryAdapter categoryAdapter;
     TextView textView;
+    static int count = 0;
+
 
     void initList(){
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -53,10 +57,35 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         initList();
-        Typeface typeface = Typeface.createFromAsset(getAssets(),"husky.ttf");
-        textView = (TextView)findViewById(R.id.heading);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "husky.ttf");
+        textView = (TextView) findViewById(R.id.heading);
         textView.setTypeface(typeface);
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        CategorySelectedActivity c = new CategorySelectedActivity();
+
+            if (count == 0) {
+                if (c.isConnected(CategoryActivity.this) == true) {
+                    sweetAlertDialog1(CategoryActivity.this);
+                    count = 1;
+                }else{
+                    setContentView(R.layout.activity_category);
+                    initList();
+                    Typeface typeface = Typeface.createFromAsset(getAssets(), "husky.ttf");
+                    textView = (TextView) findViewById(R.id.heading);
+                    textView.setTypeface(typeface);
+                }
+            } else {
+                setContentView(R.layout.activity_category);
+                initList();
+                Typeface typeface = Typeface.createFromAsset(getAssets(), "husky.ttf");
+                textView = (TextView) findViewById(R.id.heading);
+                textView.setTypeface(typeface);
+            }
+        }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -80,4 +109,20 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         }
         startActivity(intent);
     }
+
+    public SweetAlertDialog sweetAlertDialog1(Context c){
+        final SweetAlertDialog  s = new SweetAlertDialog(c,SweetAlertDialog.SUCCESS_TYPE);
+        s.setTitleText("Internet Enabled").show();
+        s.setConfirmText("OK").show();
+        s.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+               s.dismiss();
+
+            }
+        });
+        return s;
     }
+
+
+}

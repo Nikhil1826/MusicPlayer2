@@ -1,15 +1,23 @@
 package com.fasttech.musicplayer;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PointF;
 import android.graphics.Typeface;
 import android.media.MediaMetadataRetriever;
+import android.media.audiofx.BassBoost;
+import android.media.audiofx.EnvironmentalReverb;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSmoothScroller;
@@ -27,6 +35,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +43,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import static android.view.View.X;
 import static java.security.AccessController.getContext;
@@ -45,9 +56,6 @@ public class CategorySelectedActivity extends AppCompatActivity
     RecyclerView.Adapter adapter;
     ArrayList<CategorySelected> albumsArrayList;
     TextView hits;
-
-
-
 
     void hindi(){
         CategorySelected h1 = new CategorySelected("Ae Dil Hai Mushkil",R.drawable.aedil);
@@ -166,63 +174,72 @@ public class CategorySelectedActivity extends AppCompatActivity
 
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_selected);
-        hits = (TextView)findViewById(R.id.hits);
-        Intent rcv = getIntent();
-        String name = rcv.getStringExtra("KeyN");
 
-        switch (name){
-            case "HINDI":
-                hindi();
-                break;
-            case "ENGLISH":
-                english();
-                break;
-            case "PUNJABI":
-                punjabi();
-                break;
-            case "SPANISH":
-                spanish();
-                break;
+        if(!isConnected(CategorySelectedActivity.this))
+            //buildDialog(CategorySelectedActivity.this).show();
+       //new SweetAlertDialog(CategorySelectedActivity.this,SweetAlertDialog.WARNING_TYPE).setTitleText("No Internet connection avaiable").show();
+         sweetAlertDialog(CategorySelectedActivity.this);
+
+        else {
+            setContentView(R.layout.activity_category_selected);
+            hits = (TextView) findViewById(R.id.hits);
+            Intent rcv = getIntent();
+            String name = rcv.getStringExtra("KeyN");
+
+            switch (name) {
+                case "HINDI":
+                    hindi();
+                    break;
+                case "ENGLISH":
+                    english();
+                    break;
+                case "PUNJABI":
+                    punjabi();
+                    break;
+                case "SPANISH":
+                    spanish();
+                    break;
 
 
+            }
+
+
+            recyclerView = (RecyclerView) findViewById(R.id.recycle);
+            recyclerView.setHasFixedSize(true);
+            layoutManager = new GridLayoutManager(this, 2);
+            recyclerView.setLayoutManager(layoutManager);
+            adapter = new CategorySelectedAdapter(albumsArrayList, this);
+            recyclerView.setAdapter(adapter);
+            hits.setText(name + " ALBUMS");
+            Typeface typeface = Typeface.createFromAsset(getAssets(), "musieer.ttf");
+            hits.setTypeface(typeface);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.setDrawerListener(toggle);
+            toggle.syncState();
+
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.setNavigationItemSelectedListener(this);
         }
-
-
-
-        recyclerView = (RecyclerView)findViewById(R.id.recycle);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new GridLayoutManager(this,2);
-        recyclerView.setLayoutManager(layoutManager);
-        adapter = new CategorySelectedAdapter(albumsArrayList,this);
-        recyclerView.setAdapter(adapter);
-        hits.setText(name+" ALBUMS");
-        Typeface typeface = Typeface.createFromAsset(getAssets(),"musieer.ttf");
-        hits.setTypeface(typeface);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
 }
 
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-        }
+        }*/
+       Intent intent = new Intent(CategorySelectedActivity.this,CategoryActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -269,6 +286,72 @@ public class CategorySelectedActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    public boolean isConnected(Context context) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netinfo = cm.getActiveNetworkInfo();
+
+        if (netinfo != null && netinfo.isConnectedOrConnecting()) {
+            android.net.NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            android.net.NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+            if((mobile != null && mobile.isConnectedOrConnecting()) || (wifi != null && wifi.isConnectedOrConnecting())) {
+                return true;
+            }
+        else
+            return false;
+        } else
+        return false;
+    }
+
+   /* public AlertDialog.Builder buildDialog(Context c) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("No Internet Connection");
+        builder.setMessage("You need to have Mobile Data or wifi to access this.");
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                finish();
+            }
+        });
+
+        return builder;
+    }*/
+   public SweetAlertDialog sweetAlertDialog(Context c){
+       SweetAlertDialog s = new SweetAlertDialog(c,SweetAlertDialog.WARNING_TYPE);
+       s.setTitleText("No Internet Connection").show();
+       s.setContentText("You need to enable Moblie Data or Wi-Fi to progress further");
+       s.setConfirmText("WI-Fi").show();
+       s.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+           @Override
+           public void onClick(SweetAlertDialog sweetAlertDialog) {
+               Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
+               startActivity(intent);
+               finish();
+           }
+       });
+       s.setCancelText("Mobile Data").show();
+       s.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+           @Override
+           public void onClick(SweetAlertDialog sweetAlertDialog) {
+               Intent intent = new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
+               startActivity(intent);
+               finish();
+           }
+       });
+       return s;
+
+   }
+
+
+
+
 
 
 }
