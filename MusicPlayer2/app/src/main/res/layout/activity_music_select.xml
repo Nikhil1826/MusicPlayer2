@@ -3,6 +3,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,20 +34,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/imageView2"
+        <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+            android:id="@+id/progressBar1"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-          />
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:spb_sections_count="4"
+            app:spb_color="#FF0000"
+            app:spb_speed="1.5"
+            android:background="@color/bg"
+            app:spb_stroke_width="4dp"
+            app:spb_stroke_separator_length="4dp"
+            app:spb_reversed="false"
+            app:spb_mirror_mode="false"
+            app:spb_progressiveStart_activated="true"
+            app:spb_progressiveStart_speed="1.5"
+            app:spb_progressiveStop_speed="3.4"
+            />
+
+
+
+
+      <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="205dp"
+         android:id="@+id/imageView2"
+          android:layout_gravity="center"
+          >
+
+      </ImageView>
+        <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:spb_sections_count="4"
+            app:spb_color="#FF0000"
+            app:spb_speed="1.5"
+            app:spb_stroke_width="4dp"
+            android:background="@color/bg"
+            app:spb_stroke_separator_length="4dp"
+            app:spb_reversed="false"
+            app:spb_mirror_mode="false"
+            app:spb_progressiveStart_activated="true"
+            app:spb_progressiveStart_speed="1.5"
+            app:spb_progressiveStop_speed="3.4"
+            />
+
+
+
+
 
         <com.twotoasters.jazzylistview.JazzyListView
             android:id="@+id/musiclist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/c16">
+            android:background="@drawable/b3">
+
+
 
         </com.twotoasters.jazzylistview.JazzyListView>
+
+
 
 
 
@@ -58,24 +107,17 @@
     <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/upper"
-        android:background="@color/bg">
+    android:id="@+id/upper">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/songPlayingImage"
-            android:alpha="0.2"/>
+            android:background="@color/bg"/>
 
 
 
 </FrameLayout>
-
-
-
-
-
-
 
 
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>

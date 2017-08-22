@@ -45,6 +45,7 @@ import java.util.HashMap;
 
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import pl.droidsonroids.gif.GifImageView;
 
 import static android.view.View.X;
 import static java.security.AccessController.getContext;
@@ -56,6 +57,7 @@ public class CategorySelectedActivity extends AppCompatActivity
     RecyclerView.Adapter adapter;
     ArrayList<CategorySelected> albumsArrayList;
     TextView hits;
+    GifImageView gifImageView;
 
     void hindi(){
         CategorySelected h1 = new CategorySelected("Ae Dil Hai Mushkil",R.drawable.aedil);
@@ -182,6 +184,7 @@ public class CategorySelectedActivity extends AppCompatActivity
 
         else {
             setContentView(R.layout.activity_category_selected);
+            gifImageView = (GifImageView)findViewById(R.id.gifimage);
             hits = (TextView) findViewById(R.id.hits);
             Intent rcv = getIntent();
             String name = rcv.getStringExtra("KeyN");

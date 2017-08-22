@@ -24,9 +24,12 @@ public class LoadingSongsActivity extends AppCompatActivity  {
     AnimatedCircleLoadingView animatedCircleLoadingView;
     String albumname;
     int albumimage;
-    MediaMetadataRetriever aedil1[],badri1[];
+    MediaMetadataRetriever aedil1[],badri1[],dangal1[];
     String title[];
     TextView textView;
+    Runnable runnable;
+    String aedil[];
+    String badri[];
 
 
     void urlaedil(){
@@ -36,7 +39,14 @@ public class LoadingSongsActivity extends AppCompatActivity  {
             aedil1[i]= new MediaMetadataRetriever();
         }
 
-        String aedil[] = new String[6];
+         aedil = new String[6];
+        /*aedil[0]= "http://b128.ve.vc/data/128/38823/281912/Ae%20Dil%20Hai%20Mushkil%20Title%20Track%20(DjRaag.Net).mp3";
+        aedil[1]="http://b128.ve.vc/data/128/38823/281913/Alizeh%20(DjRaag.Net).mp3";
+        aedil[2]="http://b128.ve.vc/data/128/38823/281914/Bulleya%20(DjRaag.Net).mp3";
+        aedil[3]="http://b128.ve.vc/data/128/38823/281915/Channa%20Mereya%20(DjRaag.Net).mp3";
+        aedil[4]="http://b128.ve.vc/data/128/38823/281916/Cutiepie%20(DjRaag.Net).mp3";
+        aedil[5]="http://b128.ve.vc/data/128/38823/281917/The%20Breakup%20Song%20(DjRaag.Net).mp3";*/
+
         aedil[0]= "https://rs46529.000webhostapp.com/Ae%20dil%20hai%20mushkil/01%20Ae%20Dil%20Hai%20Mushkil%20-%20Title%20Song%20(Arijit%20Singh)%20190kbps.mp3";
         aedil[1]="https://rs46529.000webhostapp.com/Ae%20dil%20hai%20mushkil/Alizeh.mp3";
         aedil[2]="https://rs46529.000webhostapp.com/Ae%20dil%20hai%20mushkil/Bulleya.mp3";
@@ -59,7 +69,7 @@ public class LoadingSongsActivity extends AppCompatActivity  {
             badri1[i]= new MediaMetadataRetriever();
         }
 
-        String badri[] = new String[5];
+        badri = new String[5];
         badri[0]= "https://rs46529.000webhostapp.com/Badri%20ki%20dulhania/03%20Aashiq%20Surrender%20Hua%20(Amaal%20Mallik)%20190Kbps.mp3";
         badri[1]="https://rs46529.000webhostapp.com/Badri%20ki%20dulhania/01%20Badri%20Ki%20Dulhania%20-%20Title%20Track%20(SongsMp3.Com).mp3";
         badri[2]="https://rs46529.000webhostapp.com/Badri%20ki%20dulhania/05%20Humsafar%20(Akhil%20Sachdeva)%20190Kbps.mp3";
@@ -71,7 +81,31 @@ public class LoadingSongsActivity extends AppCompatActivity  {
         }
 
 
+
+
     }
+
+   /* void urldangal(){
+        dangal1 = new MediaMetadataRetriever[6];
+
+        for(int i=0;i<6;i++){
+            dangal1[i]= new MediaMetadataRetriever();
+        }
+
+        String dangal[] = new String[6];
+        dangal[0]= "http://b128.ve.vc/data/128/39059/282313/Dangal%20(DjRaag.Net).mp3";
+        dangal[1]="http://b128.ve.vc/data/128/39059/282311/Dhaakad%20(DjRaag.Net).mp3";
+        dangal[2]="http://b128.ve.vc/data/128/39059/282312/Gilehriyaan%20(DjRaag.Net).mp3";
+        dangal[3]="http://b128.ve.vc/data/128/39059/282310/Haanikaarak%20Bapu%20(DjRaag.Net).mp3";
+        dangal[4]="http://b128.ve.vc/data/128/39059/282316/Idiot%20Banna%20(DjRaag.Net).mp3";
+        dangal[5]="http://b128.ve.vc/data/128/39059/282314/Naina%20(DjRaag.Net).mp3";
+
+        for(int i=0;i<6;i++){
+            dangal1[i].setDataSource(dangal[i],new HashMap<String, String>());
+        }
+
+
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,19 +122,92 @@ public class LoadingSongsActivity extends AppCompatActivity  {
         albumname = rcv.getStringExtra("KeyName");
         albumimage = rcv.getIntExtra("KeyImg",0);
         animatedCircleLoadingView = (AnimatedCircleLoadingView) findViewById(R.id.circle_loading_view);
-        startLoading();
-        startPercentMockThread();
+       // startLoading();
+        //startPercentMockThread();
+        asyncTask.execute();
 
 
 
 
     }
 
-    private void startLoading() {
+    AsyncTask<String,String,String> asyncTask = new AsyncTask<String, String, String>() {
+
+        @Override
+        protected void onPreExecute() {
+            animatedCircleLoadingView.startDeterminate();
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+             runnable = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(1500);
+                        for (int i = 0; i <= 100; i++) {
+                            Thread.sleep(65);
+                            changePercent(i);
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            new Thread(runnable).start();
+
+            switch (albumname) {
+                case "Ae Dil Hai Mushkil":
+                    urlaedil();
+                    for (int i = 0; i < 6; i++) {
+                        title[i] = aedil1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+                    }
+                    break;
+                case "Badrinath Ki Dulhania":
+                    urlbadri();
+                    for (int i = 0; i < 5; i++) {
+                        title[i] = badri1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+                    }
+                    break;
+               /* case "Dangal":
+                    urldangal();
+                    for (int i = 0; i < 6; i++) {
+                        title[i] = dangal1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+                    }
+                    break;*/
+
+
+
+            }
+
+            Intent intent = new Intent(LoadingSongsActivity.this, MusicSelectActivity.class);
+            intent.putExtra("KeyName", albumname);
+            intent.putExtra("KeyImg", albumimage);
+            intent.putExtra("KeyTitle", title);
+            intent.putExtra("KeyAe",aedil);
+            intent.putExtra("KeyBadri",badri);
+            startActivity(intent);
+
+
+
+
+
+
+
+
+
+
+            return null;
+        }
+    };
+
+
+   /*private void startLoading() {
         animatedCircleLoadingView.startDeterminate();
-    }
+    }*/
 
-    private void startPercentMockThread()  {
+   /* private void startPercentMockThread()  {
             Runnable runnable = new Runnable() {
                 @Override
                 public void run() {
@@ -116,16 +223,20 @@ public class LoadingSongsActivity extends AppCompatActivity  {
                 }
             };
                 new Thread(runnable).start();
-    }
+    }*/
 
-    private void changePercent(final int percent) {
+   private void changePercent(final int percent) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 animatedCircleLoadingView.setPercent(percent);
 
+                if(percent==100){
+                    textView.setText("...Please Wait...");
+                }
 
-               if (percent==99){
+
+              /*if (percent==99){
                     switch (albumname){
                         case "Ae Dil Hai Mushkil":
                             urlaedil();
@@ -144,14 +255,15 @@ public class LoadingSongsActivity extends AppCompatActivity  {
 
                     }
 
-                }
+               }
+
                 if (percent==100){
                     Intent intent = new Intent(LoadingSongsActivity.this,MusicSelectActivity.class);
                     intent.putExtra("KeyName",albumname);
                     intent.putExtra("KeyImg",albumimage);
                     intent.putExtra("KeyTitle",title);
                     startActivity(intent);
-                }
+                }*/
             }
         });
 
@@ -170,9 +282,7 @@ public class LoadingSongsActivity extends AppCompatActivity  {
 
     @Override
     public void onBackPressed() {
-       super.onBackPressed();
-
-        //finish();
+        finish();
 
 
     }

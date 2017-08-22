@@ -10,12 +10,13 @@
 
     <ImageView
         android:id="@+id/album_art_nowplayingcard"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:padding="15dp"
         android:layout_alignParentLeft="true"
         android:scaleType="centerCrop"
         android:background="@color/bg"/>
+
 
     <LinearLayout
         android:id="@+id/content"
@@ -24,6 +25,7 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/album_art_nowplayingcard"
         android:orientation="vertical">
+
 
         <ProgressBar
             android:id="@+id/song_progress_normal"
@@ -34,7 +36,10 @@
             android:layout_gravity="top"
             android:progress="30"
             android:layout_marginTop="-7dp"
-            android:tag="tint_accent_color" />
+            android:tag="tint_accent_color"
+            android:progressBackgroundTint="@color/bg"
+            android:progressTint="#FF0000"/>
+
 
         <TextView
             android:id="@+id/title"
@@ -45,8 +50,11 @@
             android:layout_marginLeft="12dp"
             android:ellipsize="end"
             android:maxLines="1"
+            android:textColor="#FF0000"
             android:text="Title"
             android:textSize="20sp" />
+
+
         <TextView
             android:id="@+id/artist"
             style="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
@@ -54,11 +62,37 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:ellipsize="end"
+            android:textColor="#FF0000"
             android:maxLength="20"
             android:maxLines="1"
             android:text="Artist Name"
             android:textSize="18sp" />
+
+
+
     </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="300dp">
+
+        <com.ohoussein.playpause.PlayPauseView
+            android:id="@+id/play_pause_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:foreground="?android:selectableItemBackground"
+            android:layout_marginBottom="25dp"
+            app:fill_color="#e1e1e1"
+            app:pause_bg="#FF0000"
+            app:play_bg="#FF0000" />
+
+    </LinearLayout>
+
 
 
 </RelativeLayout>
