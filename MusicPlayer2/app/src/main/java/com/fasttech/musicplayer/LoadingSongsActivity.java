@@ -1,6 +1,7 @@
 package com.fasttech.musicplayer;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.media.MediaMetadataRetriever;
 import android.os.AsyncTask;
@@ -26,10 +27,12 @@ public class LoadingSongsActivity extends AppCompatActivity  {
     int albumimage;
     MediaMetadataRetriever aedil1[],badri1[],dangal1[];
     String title[];
+    String artist[];
     TextView textView;
     Runnable runnable;
     String aedil[];
     String badri[];
+
 
 
     void urlaedil(){
@@ -47,12 +50,12 @@ public class LoadingSongsActivity extends AppCompatActivity  {
         aedil[4]="http://b128.ve.vc/data/128/38823/281916/Cutiepie%20(DjRaag.Net).mp3";
         aedil[5]="http://b128.ve.vc/data/128/38823/281917/The%20Breakup%20Song%20(DjRaag.Net).mp3";*/
 
-        aedil[0]= "https://rs46529.000webhostapp.com/Ae%20dil%20hai%20mushkil/01%20Ae%20Dil%20Hai%20Mushkil%20-%20Title%20Song%20(Arijit%20Singh)%20190kbps.mp3";
-        aedil[1]="https://rs46529.000webhostapp.com/Ae%20dil%20hai%20mushkil/Alizeh.mp3";
-        aedil[2]="https://rs46529.000webhostapp.com/Ae%20dil%20hai%20mushkil/Bulleya.mp3";
-        aedil[3]="https://rs46529.000webhostapp.com/Ae%20dil%20hai%20mushkil/Channa%20Mereya.mp3";
-        aedil[4]="https://rs46529.000webhostapp.com/Ae%20dil%20hai%20mushkil/Cutiepie.mp3";
-        aedil[5]="https://rs46529.000webhostapp.com/Ae%20dil%20hai%20mushkil/The%20Breakup%20Song.mp3";
+        aedil[0]= "https://nikhilchauhan155054.000webhostapp.com/AE%20dil%20hai%20mushkil/01%20Ae%20Dil%20Hai%20Mushkil%20-%20Title%20Song%20(Arijit%20Singh)%20190kbps.mp3";
+        aedil[1]="https://nikhilchauhan155054.000webhostapp.com/AE%20dil%20hai%20mushkil/Alizeh.mp3";
+        aedil[2]="https://nikhilchauhan155054.000webhostapp.com/AE%20dil%20hai%20mushkil/Bulleya.mp3";
+        aedil[3]="https://nikhilchauhan155054.000webhostapp.com/AE%20dil%20hai%20mushkil/Channa%20Mereya.mp3";
+        aedil[4]="https://nikhilchauhan155054.000webhostapp.com/AE%20dil%20hai%20mushkil/Cutiepie.mp3";
+        aedil[5]="https://nikhilchauhan155054.000webhostapp.com/AE%20dil%20hai%20mushkil/The%20Breakup%20Song.mp3";
 
        for(int i=0;i<6;i++){
             aedil1[i].setDataSource(aedil[i],new HashMap<String, String>());
@@ -70,11 +73,11 @@ public class LoadingSongsActivity extends AppCompatActivity  {
         }
 
         badri = new String[5];
-        badri[0]= "https://rs46529.000webhostapp.com/Badri%20ki%20dulhania/03%20Aashiq%20Surrender%20Hua%20(Amaal%20Mallik)%20190Kbps.mp3";
-        badri[1]="https://rs46529.000webhostapp.com/Badri%20ki%20dulhania/01%20Badri%20Ki%20Dulhania%20-%20Title%20Track%20(SongsMp3.Com).mp3";
-        badri[2]="https://rs46529.000webhostapp.com/Badri%20ki%20dulhania/05%20Humsafar%20(Akhil%20Sachdeva)%20190Kbps.mp3";
-        badri[3]="https://rs46529.000webhostapp.com/Badri%20ki%20dulhania/04%20Roke%20Na%20Ruke%20Naina%20(Arijit%20Singh)%20190Kbps.mp3";
-        badri[4]="https://rs46529.000webhostapp.com/Badri%20ki%20dulhania/02%20Tamma%20Tamma%20Again%20-%20BNKD%20(Badshah)%20190Kbps.mp3";
+        badri[0]= "https://nikhilchauhan155054.000webhostapp.com/Badri/01%20Badri%20Ki%20Dulhania%20-%20Title%20Track%20(SongsMp3.Com).mp3";
+        badri[1]="https://nikhilchauhan155054.000webhostapp.com/Badri/02%20Tamma%20Tamma%20Again%20-%20BNKD%20(Badshah)%20190Kbps.mp3";
+        badri[2]="https://nikhilchauhan155054.000webhostapp.com/Badri/03%20Aashiq%20Surrender%20Hua%20(Amaal%20Mallik)%20190Kbps.mp3";
+        badri[3]="https://nikhilchauhan155054.000webhostapp.com/Badri/04%20Roke%20Na%20Ruke%20Naina%20(Arijit%20Singh)%20190Kbps.mp3";
+        badri[4]="https://nikhilchauhan155054.000webhostapp.com/Badri/05%20Humsafar%20(Akhil%20Sachdeva)%20190Kbps.mp3";
 
         for(int i=0;i<5;i++){
             badri1[i].setDataSource(badri[i],new HashMap<String, String>());
@@ -93,12 +96,12 @@ public class LoadingSongsActivity extends AppCompatActivity  {
         }
 
         String dangal[] = new String[6];
-        dangal[0]= "http://b128.ve.vc/data/128/39059/282313/Dangal%20(DjRaag.Net).mp3";
-        dangal[1]="http://b128.ve.vc/data/128/39059/282311/Dhaakad%20(DjRaag.Net).mp3";
-        dangal[2]="http://b128.ve.vc/data/128/39059/282312/Gilehriyaan%20(DjRaag.Net).mp3";
-        dangal[3]="http://b128.ve.vc/data/128/39059/282310/Haanikaarak%20Bapu%20(DjRaag.Net).mp3";
-        dangal[4]="http://b128.ve.vc/data/128/39059/282316/Idiot%20Banna%20(DjRaag.Net).mp3";
-        dangal[5]="http://b128.ve.vc/data/128/39059/282314/Naina%20(DjRaag.Net).mp3";
+        dangal[0]= "";
+        dangal[1]="";
+        dangal[2]="";
+        dangal[3]="";
+        dangal[4]="";
+        dangal[5]="";
 
         for(int i=0;i<6;i++){
             dangal1[i].setDataSource(dangal[i],new HashMap<String, String>());
@@ -107,11 +110,14 @@ public class LoadingSongsActivity extends AppCompatActivity  {
 
     }*/
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_songs);
-        title = new String[100];
+        title = new String[10];
+        artist = new String[10];
         textView = (TextView)findViewById(R.id.text1);
         Typeface typeface = Typeface.createFromAsset(getAssets(),"jack.otf");
         textView.setTypeface(typeface);
@@ -157,20 +163,23 @@ public class LoadingSongsActivity extends AppCompatActivity  {
             };
             new Thread(runnable).start();
 
-            switch (albumname) {
-                case "Ae Dil Hai Mushkil":
-                    urlaedil();
-                    for (int i = 0; i < 6; i++) {
-                        title[i] = aedil1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
-                    }
-                    break;
-                case "Badrinath Ki Dulhania":
-                    urlbadri();
-                    for (int i = 0; i < 5; i++) {
-                        title[i] = badri1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
-                    }
-                    break;
-               /* case "Dangal":
+
+                    switch (albumname) {
+                        case "Ae Dil Hai Mushkil":
+                            urlaedil();
+                            for (int i = 0; i < 6; i++) {
+                                title[i] = aedil1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+                                artist[i] = aedil1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
+                            }
+                            break;
+                        case "Badrinath Ki Dulhania":
+                            urlbadri();
+                            for (int i = 0; i < 5; i++) {
+                                title[i] = badri1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+                                artist[i] = badri1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
+                            }
+                            break;
+                   /*case "Dangal":
                     urldangal();
                     for (int i = 0; i < 6; i++) {
                         title[i] = dangal1[i].extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
@@ -179,14 +188,16 @@ public class LoadingSongsActivity extends AppCompatActivity  {
 
 
 
-            }
+                    }
 
             Intent intent = new Intent(LoadingSongsActivity.this, MusicSelectActivity.class);
             intent.putExtra("KeyName", albumname);
             intent.putExtra("KeyImg", albumimage);
             intent.putExtra("KeyTitle", title);
+            intent.putExtra("KeyArtist",artist);
             intent.putExtra("KeyAe",aedil);
             intent.putExtra("KeyBadri",badri);
+            //intent.putExtra("Key25",adele);
             startActivity(intent);
 
 

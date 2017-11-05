@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Music Player</string>
+    <string name="app_name">BoomBox Player</string>
     <string name="title_activity_category_selected">Albums</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

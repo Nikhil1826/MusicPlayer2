@@ -2,6 +2,7 @@ package com.fasttech.musicplayer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,20 +32,18 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
 
 
         categorylist = (JazzyListView) findViewById(R.id.categorylist);
-        categorylist.setChoiceMode(JazzyListView.CHOICE_MODE_MULTIPLE);
+        //categorylist.setChoiceMode(JazzyListView.CHOICE_MODE_MULTIPLE);
 
         Category c1 = new Category(R.drawable.h,"HINDI");
         Category c2 = new Category(R.drawable.e,"ENGLISH");
         Category c3 = new Category(R.drawable.punj,"PUNJABI");
         Category c4 = new Category(R.drawable.spanish,"SPANISH");
-        Category c5 = new Category(R.drawable.arabic,"MARATHI");
 
         categoryArrayList = new ArrayList<>();
         categoryArrayList.add(c1);
         categoryArrayList.add(c2);
         categoryArrayList.add(c3);
         categoryArrayList.add(c4);
-        categoryArrayList.add(c5);
 
         categoryAdapter = new CategoryAdapter(this,R.layout.item_category,categoryArrayList);
         categorylist.setAdapter(categoryAdapter);
@@ -103,9 +102,6 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
             case 3:
                 intent.putExtra("KeyN","SPANISH");
                 break;
-            case 4:
-                intent.putExtra("KeyN","ARABIC");
-                break;
         }
         startActivity(intent);
     }
@@ -124,5 +120,8 @@ public class CategoryActivity extends AppCompatActivity implements AdapterView.O
         return s;
     }
 
-
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static android.R.attr.name;
 
-import static com.fasttech.musicplayer.R.id.albums;
 
 /**
  * Created by dell on 7/27/2017.
@@ -77,6 +77,8 @@ public class CategorySelectedAdapter extends RecyclerView.Adapter<CategorySelect
             Intent intent = new Intent(this.context,LoadingSongsActivity.class);
             intent.putExtra("KeyImg",categorySelected.getImage());
             intent.putExtra("KeyName",categorySelected.getAlbumname());
+
+
             this.context.startActivity(intent);
         }
     }

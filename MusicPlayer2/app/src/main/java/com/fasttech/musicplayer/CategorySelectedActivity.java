@@ -68,10 +68,10 @@ public class CategorySelectedActivity extends AppCompatActivity
         CategorySelected h6 = new CategorySelected("Munna Michael",R.drawable.munna);
         CategorySelected h7 = new CategorySelected("Jagga Jassoos",R.drawable.jagga);
         CategorySelected h8 = new CategorySelected("Half Girlfriend",R.drawable.half);
-        CategorySelected h9 = new CategorySelected("Hindi Medium",R.drawable.hindi);
+        /*CategorySelected h9 = new CategorySelected("Hindi Medium",R.drawable.hindi);
         CategorySelected h10 = new CategorySelected("Raabta",R.drawable.raabta);
         CategorySelected h11 = new CategorySelected("Tubelight",R.drawable.tube);
-        CategorySelected h12 = new CategorySelected("Fan",R.drawable.fan);
+        CategorySelected h12 = new CategorySelected("Fan",R.drawable.fan);*/
         albumsArrayList = new ArrayList<>();
         albumsArrayList.add(h1);
         albumsArrayList.add(h2);
@@ -81,38 +81,38 @@ public class CategorySelectedActivity extends AppCompatActivity
         albumsArrayList.add(h6);
         albumsArrayList.add(h7);
         albumsArrayList.add(h8);
-        albumsArrayList.add(h9);
+        /*albumsArrayList.add(h9);
         albumsArrayList.add(h10);
         albumsArrayList.add(h11);
-        albumsArrayList.add(h12);
+        albumsArrayList.add(h12);*/
     }
 
     void english(){
         CategorySelected e1 = new CategorySelected("25",R.drawable.adel);
         CategorySelected e2 = new CategorySelected("Attention",R.drawable.attention);
-        CategorySelected e3 = new CategorySelected("That's What I Like",R.drawable.bruno);
-        CategorySelected e4 = new CategorySelected("Listen",R.drawable.david);
-        CategorySelected e5 = new CategorySelected("I'm The One",R.drawable.imtheone);
+        //CategorySelected e3 = new CategorySelected("That's What I Like",R.drawable.bruno);
+        //CategorySelected e4 = new CategorySelected("Listen",R.drawable.david);
+        //CategorySelected e5 = new CategorySelected("I'm The One",R.drawable.imtheone);
         CategorySelected e6 = new CategorySelected("Prism",R.drawable.prism);
         CategorySelected e7 = new CategorySelected("Rockabye",R.drawable.rocka);
         CategorySelected e8 = new CategorySelected("Shape Of You",R.drawable.shape);
         CategorySelected e9 = new CategorySelected("Sorry",R.drawable.sorry);
         CategorySelected e10 = new CategorySelected("Swalla",R.drawable.swalla);
         CategorySelected e11 = new CategorySelected("Talking To Myself",R.drawable.talking);
-        CategorySelected e12 = new CategorySelected("Wild Thoughts",R.drawable.wild);
+        //CategorySelected e12 = new CategorySelected("Wild Thoughts",R.drawable.wild);
         albumsArrayList = new ArrayList<>();
         albumsArrayList.add(e1);
         albumsArrayList.add(e2);
-        albumsArrayList.add(e3);
-        albumsArrayList.add(e4);
-        albumsArrayList.add(e5);
+        //albumsArrayList.add(e3);
+        //albumsArrayList.add(e4);
+        //albumsArrayList.add(e5);
         albumsArrayList.add(e6);
         albumsArrayList.add(e7);
         albumsArrayList.add(e8);
         albumsArrayList.add(e9);
         albumsArrayList.add(e10);
         albumsArrayList.add(e11);
-        albumsArrayList.add(e12);
+        //albumsArrayList.add(e12);
 
     }
 
@@ -121,51 +121,51 @@ public class CategorySelectedActivity extends AppCompatActivity
         CategorySelected s2 = new CategorySelected("Bailando",R.drawable.bailando);
         CategorySelected s3 = new CategorySelected("Chantaje",R.drawable.chantaje);
         CategorySelected s4 = new CategorySelected("Despacito",R.drawable.des);
-        CategorySelected s5 = new CategorySelected("Escápate Conmigo",R.drawable.escapate);
+       // CategorySelected s5 = new CategorySelected("Escápate Conmigo",R.drawable.escapate);
         CategorySelected s6 = new CategorySelected("Felices los 4",R.drawable.felices);
-        CategorySelected s7 = new CategorySelected("Mi Gente",R.drawable.migente);
-        CategorySelected s8 = new CategorySelected("Subeme La Radio ",R.drawable.subeme);
+       // CategorySelected s7 = new CategorySelected("Mi Gente",R.drawable.migente);
+        //CategorySelected s8 = new CategorySelected("Subeme La Radio ",R.drawable.subeme);
         CategorySelected s9 = new CategorySelected("Vente Pa' Ca",R.drawable.vente);
-        CategorySelected s10 = new CategorySelected("Why Not Me?",R.drawable.why);
+        //CategorySelected s10 = new CategorySelected("Why Not Me?",R.drawable.why);
         albumsArrayList = new ArrayList<>();
         albumsArrayList.add(s1);
         albumsArrayList.add(s2);
         albumsArrayList.add(s3);
         albumsArrayList.add(s4);
-        albumsArrayList.add(s5);
+        //albumsArrayList.add(s5);
         albumsArrayList.add(s6);
-        albumsArrayList.add(s7);
-        albumsArrayList.add(s8);
+        //albumsArrayList.add(s7);
+        //albumsArrayList.add(s8);
         albumsArrayList.add(s9);
-        albumsArrayList.add(s10);
+        //albumsArrayList.add(s10);
     }
 
     void punjabi(){
         CategorySelected p1 = new CategorySelected("Backbone",R.drawable.back);
         CategorySelected p2 = new CategorySelected("Car Nachdi",R.drawable.car);
         CategorySelected p3 = new CategorySelected("Hello Hello",R.drawable.he);
-        CategorySelected p4 = new CategorySelected("High Rated Gabru",R.drawable.high);
+        //CategorySelected p4 = new CategorySelected("High Rated Gabru",R.drawable.high);
         CategorySelected p5 = new CategorySelected("Blow Horn",R.drawable.horn);
         CategorySelected p6 = new CategorySelected("Mercy",R.drawable.mercy);
         CategorySelected p7 = new CategorySelected("NaJa",R.drawable.na);
         CategorySelected p8 = new CategorySelected("3 Peg",R.drawable.peg);
         CategorySelected p9 = new CategorySelected("Suit",R.drawable.suit);
-        CategorySelected p10 = new CategorySelected("Super Singh",R.drawable.super1);
-        CategorySelected p11 = new CategorySelected("5 Taara",R.drawable.taara);
-        CategorySelected p12 = new CategorySelected("Wakhra Swag",R.drawable.wakhra);
+       // CategorySelected p10 = new CategorySelected("Super Singh",R.drawable.super1);
+        //CategorySelected p11 = new CategorySelected("5 Taara",R.drawable.taara);
+       // CategorySelected p12 = new CategorySelected("Wakhra Swag",R.drawable.wakhra);
         albumsArrayList = new ArrayList<>();
         albumsArrayList.add(p1);
         albumsArrayList.add(p2);
         albumsArrayList.add(p3);
-        albumsArrayList.add(p4);
+        //albumsArrayList.add(p4);
         albumsArrayList.add(p5);
         albumsArrayList.add(p6);
         albumsArrayList.add(p7);
         albumsArrayList.add(p8);
         albumsArrayList.add(p9);
-        albumsArrayList.add(p10);
-        albumsArrayList.add(p11);
-        albumsArrayList.add(p12);
+       // albumsArrayList.add(p10);
+       // albumsArrayList.add(p11);
+       // albumsArrayList.add(p12);
 
     }
 
@@ -260,9 +260,6 @@ public class CategorySelectedActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -273,15 +270,9 @@ public class CategorySelectedActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.albums) {
-            // Handle the camera action
-        } else if (id == R.id.artists) {
-
-        } else if (id == R.id.language) {
+         if (id == R.id.language) {
             Intent intent = new Intent(CategorySelectedActivity.this,CategoryActivity.class);
             startActivity(intent);
-
-        } else if (id == R.id.settings) {
 
         }
 
@@ -329,7 +320,7 @@ public class CategorySelectedActivity extends AppCompatActivity
    public SweetAlertDialog sweetAlertDialog(Context c){
        SweetAlertDialog s = new SweetAlertDialog(c,SweetAlertDialog.WARNING_TYPE);
        s.setTitleText("No Internet Connection").show();
-       s.setContentText("You need to enable Moblie Data or Wi-Fi to progress further");
+       s.setContentText("You need to enable Moblie Data or Wi-Fi to progress further.");
        s.setConfirmText("WI-Fi").show();
        s.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
            @Override

@@ -1,5 +1,7 @@
 package com.fasttech.musicplayer;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by dell on 7/26/2017.
  */

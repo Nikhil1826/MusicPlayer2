@@ -33,7 +33,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/bg">
         <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
             android:id="@+id/progressBar1"
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
             android:indeterminate="true"
             app:spb_sections_count="4"
             app:spb_color="#FF0000"
-            app:spb_speed="1.5"
+            app:spb_speed="1"
             android:background="@color/bg"
             app:spb_stroke_width="4dp"
             app:spb_stroke_separator_length="4dp"
@@ -59,9 +60,7 @@
           android:layout_width="match_parent"
           android:layout_height="205dp"
          android:id="@+id/imageView2"
-          android:layout_gravity="center"
-          >
-
+          android:layout_gravity="center">
       </ImageView>
         <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
             android:id="@+id/progressBar"
@@ -70,7 +69,7 @@
             android:indeterminate="true"
             app:spb_sections_count="4"
             app:spb_color="#FF0000"
-            app:spb_speed="1.5"
+            app:spb_speed="1"
             app:spb_stroke_width="4dp"
             android:background="@color/bg"
             app:spb_stroke_separator_length="4dp"
@@ -83,22 +82,26 @@
 
 
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backimage"
+        android:background="@drawable/b3" />
 
 
-        <com.twotoasters.jazzylistview.JazzyListView
-            android:id="@+id/musiclist"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/b3">
+    <com.twotoasters.jazzylistview.JazzyListView
+        android:id="@+id/musiclist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.twotoasters.jazzylistview.JazzyListView>
 
 
-
-        </com.twotoasters.jazzylistview.JazzyListView>
-
-
-
-
-
+</RelativeLayout>
 
     </LinearLayout>
 
@@ -110,14 +113,64 @@
     android:id="@+id/upper">
 
         <ImageView
+            android:id="@+id/songPlayingImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/songPlayingImage"
-            android:background="@color/bg"/>
+            android:background="@color/bg" />
 
 
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragsong"
+            android:textColor="@color/t1"
+            android:textSize="25sp"
+            android:text="Welcome"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"/>
+
+        <co.mobiwise.library.MusicPlayerView
+            android:id="@+id/mpv"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center"
+            app:textSize = "14sp"
+            android:layout_marginBottom="40dp"
+            app:textColor = "#80FFFFFF"
+            app:buttonColor = "#ff0028"
+            app:progressLoadedColor = "#ff0028"/>
+
+
+
+        <Button
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/play2"
+            android:layout_marginTop="520dp"
+            android:layout_marginLeft="165dp"
+            android:id="@+id/playbutton"/>
+
+        <Button
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/next2"
+            android:layout_marginTop="520dp"
+            android:layout_marginLeft="285dp"
+            android:id="@+id/nextbutton"/>
+
+        <Button
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/previous1"
+            android:layout_marginTop="520dp"
+            android:layout_marginLeft="45dp"
+            android:id="@+id/previousbutton"/>
+
+
+
+
+    </FrameLayout>
 
 
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>
